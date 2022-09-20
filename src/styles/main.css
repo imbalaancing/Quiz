@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+}
+
+body {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 16px;
+  background: #c6ffdd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50rem;
+}
+
+.quiz {
+  position: relative;
+  padding: 0px 50px 70px 50px;
+  background-color: #fff;
+  border-radius: 8px;
+  width: 600px;
+  overflow: hidden;
+}
+
+.quiz__header {
+  text-align: center;
+  padding-top: 50px;
+  font-size: 20px;
+  padding-bottom: 20px;
+}
+
+.quiz__list {
+  list-style-type: none;
+  padding-bottom: 15px;
+}
+
+.quiz__list li {
+  font-size: 20px;
+}
+
+.quiz__list label {
+  cursor: pointer;
+  width: 100%;
+  display: block;
+  padding: 15px 10px;
+}
+
+.quiz__list input[type='radio'] {
+  margin-right: 10px;
+}
+
+.quiz-submit {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 70px;
+  line-height: 70px;
+}
+
+.submit {
+  background-color: #8e44ad;
+  color: #fff;
+  border: none;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  font-size: 20px;
+  font-family: inherit;
+}
+
+.submit:hover {
+  background-color: #732d91;
+}
+
+.submit:focus {
+  outline: none;
+  background-color: #5e3370;
+}
