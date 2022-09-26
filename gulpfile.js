@@ -63,6 +63,9 @@ function styles() {
     .pipe(browserSync.stream());
 }
 
+/**
+ * assembly and change control of scripts
+ */
 function scripts() {
   return gulp
     .src(paths.scripts.src)
