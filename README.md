@@ -6,7 +6,7 @@ This is a training project.
 
 ## Tech
 
-- [Gulp]
+- Gulp
 - JavaScript
 - HTML
 - CSS
@@ -16,7 +16,6 @@ This is a training project.
 Install the dependencies and devDependencies and start the server.
 
 ```sh
-cd dillinger
 npm i
 gulp
 ```
