@@ -83,6 +83,7 @@ function observer() {
   gulp.watch(paths.html.src, copyHtml);
   gulp.watch(paths.html.dest).on('change', browserSync.reload);
   gulp.watch(paths.scripts.src, scripts);
+  gulp.watch(paths.scripts.dest).on('change', browserSync.reload);
 }
 
 /**

@@ -1,3 +1,7 @@
+const questionContainer = document.querySelector('.quiz__question');
+const answersContainer = document.querySelector('.quiz__list');
+const submitButton = document.querySelector('#submit');
+
 const questions = [
   {
     question: 'Сколько на данный момент существует языков программирования?',
@@ -66,3 +70,16 @@ const questions = [
 
 let questionIndex = 0;
 let score = 0;
+
+function cleanQuiz() {
+  questionContainer.innerHTML = '';
+  answersContainer.innerHTML = '';
+}
+
+cleanQuiz();
+
+function showQuestion() {
+  questionContainer.innerHTML = questions[questionIndex]['question'];
+}
+
+showQuestion();
