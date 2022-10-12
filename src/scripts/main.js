@@ -123,3 +123,29 @@ function checkQuestionNumber() {
     showAnswers();
   }
 }
+
+function showResults() {
+  let titleResult;
+  let messageResult;
+
+  if (score === questions.length) {
+    titleResult = 'Отличный результат!';
+    messageResult = 'Вы правильно ответили на все вопросы!';
+  } else if ((score * 100) / questions.length >= 50) {
+    titleResult = 'Неплохой результат!';
+    messageResult = 'Вы правильно ответили на более половины вопросов!';
+  } else {
+    titleResult = 'Стоит подтянуть свои знания!';
+    messageResult = 'Вы ответили менее чем на половину вопросов :(';
+  }
+
+  const resultsTemp = `
+    <h2 class="result__title">${titleResult}</h2>
+    <h3 class="result__message">${messageResult}</h3>
+    <p class="result__summary">Ваш результат: ${score} из ${questions.length}</p>
+  `;
+
+  resultsContainer.innerHTML += resultsTemp;
+  submitButton.innerHTML = 'Играть снова';
+  submitButton.addEventListener('click', reloadQuiz);
+}
