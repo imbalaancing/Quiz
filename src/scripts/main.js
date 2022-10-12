@@ -1,5 +1,6 @@
 const questionContainer = document.querySelector('.quiz__question');
 const answersContainer = document.querySelector('.quiz__list');
+const resultsContainer = document.querySelector('.quiz__header');
 const submitButton = document.querySelector('#submit');
 
 const questions = [
@@ -71,6 +72,10 @@ const questions = [
 let questionIndex = 0;
 let score = 0;
 
+cleanQuiz();
+showQuestion();
+showAnswers();
+
 submitButton.addEventListener('click', function () {
   checkUserAnswer();
   checkQuestionNumber();
@@ -81,13 +86,9 @@ function cleanQuiz() {
   answersContainer.innerHTML = '';
 }
 
-cleanQuiz();
-
 function showQuestion() {
   questionContainer.innerHTML = questions[questionIndex]['question'];
 }
-
-showQuestion();
 
 function showAnswers() {
   let answerIndex = 1;
@@ -105,8 +106,6 @@ function showAnswers() {
     answerIndex++;
   }
 }
-
-showAnswers();
 
 function checkUserAnswer() {
   const checkedAnswer = answersContainer.querySelector('input:checked');
