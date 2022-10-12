@@ -71,6 +71,11 @@ const questions = [
 let questionIndex = 0;
 let score = 0;
 
+submitButton.addEventListener('click', function () {
+  checkUserAnswer();
+  checkQuestionNumber();
+});
+
 function cleanQuiz() {
   questionContainer.innerHTML = '';
   answersContainer.innerHTML = '';
@@ -148,4 +153,8 @@ function showResults() {
   resultsContainer.innerHTML += resultsTemp;
   submitButton.innerHTML = 'Играть снова';
   submitButton.addEventListener('click', reloadQuiz);
+}
+
+function reloadQuiz() {
+  location.reload();
 }
