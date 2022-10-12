@@ -102,3 +102,12 @@ function showAnswers() {
 }
 
 showAnswers();
+
+function checkUserAnswer() {
+  const checkedAnswer = answersContainer.querySelector('input:checked');
+  const userAnswer = Number(checkedAnswer.value);
+
+  if (userAnswer === questions[questionIndex]['correct']) {
+    score++;
+  }
+}
