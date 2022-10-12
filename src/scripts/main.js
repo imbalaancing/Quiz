@@ -85,16 +85,19 @@ function showQuestion() {
 showQuestion();
 
 function showAnswers() {
+  let answerIndex = 1;
+
   for (let answerText of questions[questionIndex]['answers']) {
     const answerTemp = `
     <li>
     <label class="answer">
-      <input type="radio" class="quiz__answer" name="answer" />
+      <input value="${answerIndex}" type="radio" class="quiz__answer" name="answer" />
       <span>${answerText}</span>
     </label>
   </li>`;
 
     answersContainer.innerHTML += answerTemp;
+    answerIndex++;
   }
 }
 
