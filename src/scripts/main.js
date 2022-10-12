@@ -111,3 +111,15 @@ function checkUserAnswer() {
     score++;
   }
 }
+
+function checkQuestionNumber() {
+  if (questionIndex === questions.length - 1) {
+    cleanQuiz();
+    showResults();
+  } else {
+    questionIndex++;
+    cleanQuiz();
+    showQuestion();
+    showAnswers();
+  }
+}
