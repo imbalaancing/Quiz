@@ -1,4 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
+@font-face {
+  font-family: 'Noto Sans';
+  src: local('Noto Sans Italic'), local('NotoSans-Italic'),
+    url('notosansitalic.woff2') format('woff2'),
+    url('notosansitalic.woff') format('woff'),
+    url('notosansitalic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Noto Sans';
+  src: local('Noto Sans Bold'), local('NotoSans-Bold'),
+    url('notosansbold.woff2') format('woff2'),
+    url('notosansbold.woff') format('woff'),
+    url('notosansbold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
 
 * {
   box-sizing: border-box;

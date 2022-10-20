@@ -16,6 +16,10 @@ const paths = {
     src: 'src/*.html',
     dest: 'build/',
   },
+  fonts: {
+    src: 'src/fonts/**',
+    dest: 'build/fonts/',
+  },
   scripts: {
     src: 'src/scripts/**/*.js',
     dest: 'build/js/',
@@ -29,6 +33,13 @@ function removeBuild() {
   console.info('removed build catalog');
 
   return del(['build/**/*']);
+}
+
+/**
+ * cleaning fonts build directory
+ */
+function cleanFonts() {
+  return del(['build/fonts/']);
 }
 
 /**
@@ -60,6 +71,18 @@ function styles() {
 }
 
 /**
+ * control and replacement of changed fonts
+ */
+function fonts() {
+  console.info('all font files replaced');
+
+  return gulp
+    .src(paths.fonts.src)
+    .pipe(gulp.dest(paths.fonts.dest))
+    .pipe(browserSync.stream());
+}
+
+/**
  * assembly and change control of scripts
  */
 function scripts() {
@@ -78,6 +101,8 @@ function observer() {
   gulp.watch(paths.styles.src, styles);
   gulp.watch(paths.html.src, copyHtml);
   gulp.watch(paths.html.dest).on('change', browserSync.reload);
+  gulp.watch(paths.fonts.src, fonts);
+  gulp.watch(paths.fonts.src).on('unlink', cleanFonts);
   gulp.watch(paths.scripts.src, scripts);
   gulp.watch(paths.scripts.dest).on('change', browserSync.reload);
 }
@@ -100,6 +125,6 @@ function sync() {
  */
 gulp.task(
   'default',
-  gulp.parallel(removeBuild, copyHtml, styles, scripts, observer, sync)
+  gulp.parallel(removeBuild, copyHtml, fonts, styles, scripts, observer, sync)
 );
-gulp.task('build', gulp.series(removeBuild, copyHtml, styles, scripts));
+gulp.task('build', gulp.series(removeBuild, copyHtml, fonts, styles, scripts));
