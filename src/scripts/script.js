@@ -81,15 +81,24 @@ submitButton.addEventListener('click', function () {
   checkQuestionNumber();
 });
 
+/**
+ * cleaning quiz fields
+ */
 function cleanQuiz() {
   questionContainer.innerHTML = '';
   answersContainer.innerHTML = '';
 }
 
+/**
+ * display current question
+ */
 function showQuestion() {
   questionContainer.innerHTML = questions[questionIndex]['question'];
 }
 
+/**
+ * display current answers
+ */
 function showAnswers() {
   let answerIndex = 1;
 
@@ -107,6 +116,9 @@ function showAnswers() {
   }
 }
 
+/**
+ * checking the correctness of the user answer
+ */
 function checkUserAnswer() {
   const checkedAnswer = answersContainer.querySelector('input:checked');
   const userAnswer = Number(checkedAnswer.value);
@@ -116,6 +128,9 @@ function checkUserAnswer() {
   }
 }
 
+/**
+ * checking if the current question is the last one
+ */
 function checkQuestionNumber() {
   if (questionIndex === questions.length - 1) {
     cleanQuiz();
@@ -128,6 +143,9 @@ function checkQuestionNumber() {
   }
 }
 
+/**
+ * result display
+ */
 function showResults() {
   let titleResult;
   let messageResult;
@@ -154,6 +172,9 @@ function showResults() {
   submitButton.addEventListener('click', reloadQuiz);
 }
 
+/**
+ * quiz restart
+ */
 function reloadQuiz() {
   location.reload();
 }
