@@ -150,15 +150,22 @@ function showResults() {
   let titleResult;
   let messageResult;
 
-  if (score === questions.length) {
-    titleResult = 'Отличный результат!';
-    messageResult = 'Вы правильно ответили на все вопросы!';
-  } else if ((score * 100) / questions.length >= 50) {
-    titleResult = 'Неплохой результат!';
-    messageResult = 'Вы правильно ответили на более половины вопросов!';
-  } else {
-    titleResult = 'Стоит подтянуть свои знания!';
-    messageResult = 'Вы ответили менее чем на половину вопросов :(';
+  switch (score) {
+    case questions.length:
+      titleResult = 'Отличный результат!';
+      messageResult = 'Вы правильно ответили на все вопросы!';
+      break;
+    case 9:
+    case 8:
+    case 7:
+    case 6:
+      titleResult = 'Неплохой результат!';
+      messageResult = 'Вы правильно ответили на более половины вопросов!';
+      break;
+    default:
+      titleResult = 'Стоит подтянуть свои знания!';
+      messageResult = 'Вы ответили менее чем на половину вопросов :(';
+      break;
   }
 
   const resultsTemp = `
