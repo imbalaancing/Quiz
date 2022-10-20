@@ -19,8 +19,8 @@ body {
 
 .quiz {
   position: relative;
-  padding: 0px 50px 70px 50px;
-  background-color: #fff;
+  padding: 0 50px 70px 50px;
+  background-color: #ffffff;
   border-radius: 8px;
   width: 600px;
   overflow: hidden;
@@ -64,7 +64,7 @@ body {
 
 .submit {
   background-color: #8e44ad;
-  color: #fff;
+  color: #ffffff;
   border: none;
   display: block;
   width: 100%;

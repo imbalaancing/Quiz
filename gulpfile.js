@@ -5,6 +5,7 @@ const cleanCSS = require('gulp-clean-css');
 const sourcemaps = require('gulp-sourcemaps');
 const browserSync = require('browser-sync').create();
 const uglify = require('gulp-uglify');
+const concat = require('gulp-concat');
 
 const paths = {
   styles: {
@@ -52,12 +53,7 @@ function styles() {
     .src(paths.styles.src)
     .pipe(sourcemaps.init())
     .pipe(cleanCSS())
-    .pipe(
-      rename({
-        basename: 'main',
-        suffix: '.min',
-      })
-    )
+    .pipe(concat('style.min.css'))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest(paths.styles.dest))
     .pipe(browserSync.stream());
