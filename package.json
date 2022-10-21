@@ -31,6 +31,7 @@
     "sass": "^1.54.2"
   },
   "dependencies": {
+    "gulp-typescript": "^6.0.0-alpha.1",
     "normalize.css": "^8.0.1"
   }
 }

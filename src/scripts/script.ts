@@ -1,9 +1,21 @@
-const questionContainer = document.querySelector('.quiz__question');
-const answersContainer = document.querySelector('.quiz__list');
-const resultsContainer = document.querySelector('.quiz__header');
-const submitButton = document.querySelector('#submit');
+const questionContainer = document.querySelector(
+  '.quiz__question'
+) as HTMLDivElement;
+const answersContainer = document.querySelector(
+  '.quiz__list'
+) as HTMLDivElement;
+const resultsContainer = document.querySelector(
+  '.quiz__header'
+) as HTMLDivElement;
+const submitButton = document.querySelector('#submit') as HTMLButtonElement;
 
-const questions = [
+interface IQuestions {
+  question: string;
+  answers: string[];
+  correct: number;
+}
+
+const questions: IQuestions[] = [
   {
     question: 'Сколько на данный момент существует языков программирования?',
     answers: ['50', '1500', '8000', '900'],
@@ -69,8 +81,8 @@ const questions = [
   },
 ];
 
-let questionIndex = 0;
-let score = 0;
+let questionIndex: number = 0;
+let score: number = 0;
 
 cleanQuiz();
 showQuestion();
@@ -84,7 +96,7 @@ submitButton.addEventListener('click', function () {
 /**
  * cleaning quiz fields
  */
-function cleanQuiz() {
+function cleanQuiz(): void {
   questionContainer.innerHTML = '';
   answersContainer.innerHTML = '';
 }
@@ -92,15 +104,15 @@ function cleanQuiz() {
 /**
  * display current question
  */
-function showQuestion() {
+function showQuestion(): void {
   questionContainer.innerHTML = questions[questionIndex]['question'];
 }
 
 /**
  * display current answers
  */
-function showAnswers() {
-  let answerIndex = 1;
+function showAnswers(): void {
+  let answerIndex: number = 1;
 
   for (let answerText of questions[questionIndex]['answers']) {
     const answerTemp = `
@@ -119,8 +131,10 @@ function showAnswers() {
 /**
  * checking the correctness of the user answer
  */
-function checkUserAnswer() {
-  const checkedAnswer = answersContainer.querySelector('input:checked');
+function checkUserAnswer(): void {
+  const checkedAnswer = answersContainer.querySelector(
+    'input:checked'
+  ) as HTMLInputElement;
   const userAnswer = Number(checkedAnswer.value);
 
   if (userAnswer === questions[questionIndex]['correct']) {
@@ -131,7 +145,7 @@ function checkUserAnswer() {
 /**
  * checking if the current question is the last one
  */
-function checkQuestionNumber() {
+function checkQuestionNumber(): void {
   if (questionIndex === questions.length - 1) {
     cleanQuiz();
     showResults();
@@ -146,9 +160,9 @@ function checkQuestionNumber() {
 /**
  * result display
  */
-function showResults() {
-  let titleResult;
-  let messageResult;
+function showResults(): void {
+  let titleResult: string;
+  let messageResult: string;
 
   switch (score) {
     case questions.length:
@@ -168,7 +182,7 @@ function showResults() {
       break;
   }
 
-  const resultsTemp = `
+  const resultsTemp: string = `
     <h2 class="result__title">${titleResult}</h2>
     <h3 class="result__message">${messageResult}</h3>
     <p class="result__summary">Ваш результат: ${score} из ${questions.length}</p>
@@ -182,6 +196,6 @@ function showResults() {
 /**
  * quiz restart
  */
-function reloadQuiz() {
+function reloadQuiz(): void {
   location.reload();
 }

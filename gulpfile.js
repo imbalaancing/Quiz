@@ -6,6 +6,7 @@ const sourcemaps = require('gulp-sourcemaps');
 const browserSync = require('browser-sync').create();
 const uglify = require('gulp-uglify');
 const concat = require('gulp-concat');
+const ts = require('gulp-typescript');
 
 const paths = {
   styles: {
@@ -20,9 +21,13 @@ const paths = {
     src: 'src/fonts/**',
     dest: 'build/fonts/',
   },
+  // scripts: {
+  //   src: 'src/scripts/**/*.js',
+  //   dest: 'build/js/',
+  // },
   scripts: {
-    src: 'src/scripts/**/*.js',
-    dest: 'build/js/',
+    src: 'src/scripts/**/*.ts',
+    dest: 'build/scripts/',
   },
 };
 
@@ -85,9 +90,21 @@ function fonts() {
 /**
  * assembly and change control of scripts
  */
+// function scripts() {
+//   return gulp
+//     .src(paths.scripts.src)
+//     .pipe(uglify())
+//     .pipe(gulp.dest(paths.scripts.dest));
+// }
 function scripts() {
   return gulp
     .src(paths.scripts.src)
+    .pipe(
+      ts({
+        noImplicitAny: true,
+        out: 'script.js',
+      })
+    )
     .pipe(uglify())
     .pipe(gulp.dest(paths.scripts.dest));
 }
