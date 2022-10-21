@@ -7,7 +7,7 @@ This is a training project.
 ## Tech
 
 - Gulp
-- JavaScript
+- TypeScript
 - HTML
 - CSS
 
