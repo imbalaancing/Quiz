@@ -11,7 +11,7 @@ const submitButton = document.querySelector('#submit') as HTMLButtonElement;
 
 interface IQuestions {
   question: string;
-  answers: string[];
+  answers: Array<string>;
   correct: number;
 }
 
@@ -164,15 +164,12 @@ function showResults(): void {
   let titleResult: string;
   let messageResult: string;
 
-  switch (score) {
-    case questions.length:
+  switch (true) {
+    case score == 10:
       titleResult = 'Отличный результат!';
       messageResult = 'Вы правильно ответили на все вопросы!';
       break;
-    case 9:
-    case 8:
-    case 7:
-    case 6:
+    case score >= 6:
       titleResult = 'Неплохой результат!';
       messageResult = 'Вы правильно ответили на более половины вопросов!';
       break;
